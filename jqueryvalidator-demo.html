@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Validator | jQuery Validation | jQuery form validation plugin</title>
+<link href="stylesheets.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jqueryvalidator.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	$(".form1").jqueryvalidator({
+	action:'submit.php', //if not provided the form's action will be used
+	method:'post', //if not provided the form's method will be used
+	asynchronous_mode:true,
+	requiredfields:{
+					'#name':{
+							required:true,
+							requiredmsg:'Please Enter Your Name in the given box',
+							pattern:true,
+							patternclass:'string',
+							patternexpr:/^[a-zA-Z\s]+$/,
+							patternmsg:'Please Enter valid name',
+							minlength:3,
+							minlengthmsg:'Minimum length is three',
+							maxlength:10,
+							maxlengthmsg:'Maximum length is ten'
+						},
+					'#email':{required:true,maxlength:11,pattern:true,patternclass:'email',patternmsg:'Please Enter valid Email'},
+					'[name=mobile]':{required:true,pattern:true,patternclass:'number',range:'7777777777-9999999999'},
+					"#hobbies":{required:true,requiredmsg:'Required'},
+					"#education":{required:true,requiredmsg:'Required'},
+					"#file":{required:true,allowedextensions:'docx',allowedextensionsmsg:'Only docx are alloweed.',maxfiles:3,maxfilesmsg:'Max allowed files are 3'}
+	}
+	});
+	
+	});
+   </script>
+   <style type="text/css">
+   #symbol {color:red}
+   </style>
+</head>
+<body>
+	<div class="wrapp">
+		
+		<div class="head">
+			<a href="http://www.jqueryvalidator.org" title="jquery validator">jQuery Validator</a>
+		</div>
+		
+		<div class="nav">
+		<a href="http://www.jqueryvalidator.org">Home</a>
+		<a href="jqueryvalidator-demo.html">Demo</a>
+		<a href="jqueryvalidator.js">Download</a>
+		</div>
+		<div class="container">
+			<div class="heading">
+			<div class="span">jQuery Validator Plugin</div>
+<html>
+<head>
+<style type="text/css">
+table tr,td {padding:10px}
+table input[type=text],select,input[type=file] {width:200px;margin-right:20px;padding:2px}
+table input[type=submit] {width:80px;padding:4px}
+</style>
+</head>
+<body>
+<table style="margin-top:20px" cellpadding="5" cellspacing="5">
+<form action="submit.php" method="post" class="form1" id="myform" enctype="multipart/form-data">
+<tr><td>Name</td><td><input type="text" name="name" id="name"  /></td></tr>
+
+<tr><td>Email</td><td><input type="text" name="email" id="email"  /></td></tr>
+<tr><td>Mobile</td><td><input type="text" name="mobile"  /></td></tr>
+<tr><td>Hobbies</td><td><select name="hobbies[]" id="hobbies" multiple>
+<option value='cricket'>cricket</option>
+<option value='football'>football</option>
+<option value='hockey'>hockey</option>
+</select></td></tr>
+<tr><td>Education</td><td><select name="education" id="education">
+<option value='SELECT'>SELECT</option>
+<option value='UG'>UG</option>
+<option value='PG'>PG</option>
+</select></td></tr>
+<tr><td>Resume </td><td><input type="file" name="myfile[]" multiple id="file" /></td></tr>
+<tr><td></td><td><input type="submit" id="submit1" value="Submit" /></td></tr>
+</form>
+</div>
+	</div>
+		
+	</div>
+</body>
+</html>
